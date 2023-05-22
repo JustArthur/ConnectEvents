@@ -1,3 +1,16 @@
+<?php
+    error_reporting(E_ALL);
+    ini_set("display_errors", 1);
+    include_once('./include.php');
+
+    if(!empty($_POST)) {
+        extract($_POST);
+        if(isset($_POST['inscription'])) {
+            [$erreur] = $_INSCRIPTION->inscription_user($identifiant, $email, $password, $conf_password);
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -22,24 +35,27 @@
             </div>
 
             <form method="post" class="formulaire">
+
+                <?php if(isset($erreur)) { ?><div class="erreur"><?= $erreur ?></div> <?php } ?>
+
                 <div class="input-box">
                     <label for="identifiant" class="text-label">Identifiant</label>
-                    <input type="text" id="identifiant" name="identifiant" class="input" placeholder="Entrez votre identifiant">
+                    <input required type="text" id="identifiant" name="identifiant" class="input" placeholder="Entrez votre identifiant">
                 </div>
 
                 <div class="input-box">
                     <label for="email" class="text-label">Adresse mail</label>
-                    <input type="email" id="email" name="email" class="input" placeholder="Entrez votre adresse mail">
+                    <input required type="email" id="email" name="email" class="input" placeholder="Entrez votre adresse mail">
                 </div>
 
                 <div class="input-box">
                     <label for="password" class="text-label">Mot de passe</label>
-                    <input type="password" id="password" name="password" class="input" placeholder="Entrez votre mot de passe">
+                    <input required type="password" id="password" name="password" class="input" placeholder="Entrez votre mot de passe">
                 </div>
 
                 <div class="input-box">
-                    <label for="conf-password" class="text-label">Confirmer le mot de passe</label>
-                    <input type="password" id="conf-password" name="conf-password" class="input" placeholder="Entrez de nouveau votre mot de passe">
+                    <label for="conf_password" class="text-label">Confirmer le mot de passe</label>
+                    <input required type="password" id="conf_password" name="conf_password" class="input" placeholder="Entrez de nouveau votre mot de passe">
                 </div>
 
                 <input type="submit" name="inscription" value="Créer mon compte" class="submit-input">

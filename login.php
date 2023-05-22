@@ -1,3 +1,16 @@
+<?php
+    error_reporting(E_ALL);
+    ini_set("display_errors", 1);
+    include_once('include.php');
+
+    if(!empty($_POST)) {
+        extract($_POST);
+        if(isset($_POST['connexion'])) {
+            [$erreur] = $_CONNEXION->connexion_user($email, $password);
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -23,14 +36,16 @@
 
             <form method="post" class="formulaire">
 
+                <?php if(isset($erreur)) { ?><div class="erreur"><?= $erreur ?></div> <?php } ?>
+
                 <div class="input-box">
                     <label for="email" class="text-label">Adresse mail</label>
-                    <input type="email" id="email" name="email" class="input" placeholder="Entrez votre adresse mail">
+                    <input required type="email" id="email" name="email" class="input" placeholder="Entrez votre adresse mail">
                 </div>
 
                 <div class="input-box">
                     <label for="password" class="text-label">Mot de passe</label>
-                    <input type="password" id="password" name="password" class="input" placeholder="Entrez votre mot de passe">
+                    <input required type="password" id="password" name="password" class="input" placeholder="Entrez votre mot de passe">
                 </div>
 
                 <a href="php/functions/forgot_password.php" class="forgot-password">J'ai oublié mon mot de passe</a>
