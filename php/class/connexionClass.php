@@ -8,8 +8,8 @@
 
             global $DB;
 
-            $email = (String) trim($email);
-            $password = (String) trim($password);
+            $email = (String) htmlspecialchars(trim($email));
+            $password = (String) htmlspecialchars(trim($password));
 
             $this->erreur = (String) "";
             $this->valid = (boolean) true;
@@ -36,11 +36,11 @@
                     $connexion_user = $connexion_user->fetch();
 
                     $_SESSION['utilisateur'] = array(
-                        $connexion_user['user_id'], //0
-                        $connexion_user['username'], //1
-                        $connexion_user['email'], //2
-                        $connexion_user['profile_photo'], //3
-                        $connexion_user['banner_image'] //4
+                        htmlspecialchars($connexion_user['user_id']), //0
+                        htmlspecialchars($connexion_user['username']), //1
+                        htmlspecialchars($connexion_user['email']), //2
+                        htmlspecialchars($connexion_user['profile_photo']), //3
+                        htmlspecialchars($connexion_user['banner_image']) //4
                     );
 
                     header('Location: http://127.0.0.1/ConnectEvents/website/pages/index');
