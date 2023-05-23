@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat';
+    font-style: normal;
+}
+
+:root {
+    --bg-color: #FFFFFF;
+
+    --blue-color-1: #022A4E;
+    --blue-color-2: #2978CC;
+    --blue-color-2-50: #2978CC50;
+
+    --white-color-1: #FFFFFF;
+    --white-color-2: #E6EAED;
+
+    --grey-color: #999999;
+
+    --box-shadow: 0 100px 156px rgba(2,119,116,.05),
+    0 41.7776px 65.1731px rgba(2,119,116,.0359427),
+    0 22.3363px 34.8446px rgba(2,119,116,.0298054),
+    0 12.5216px 19.5336px rgba(2,119,116,.025),
+    0 6.6501px 10.3742px rgba(2,119,116,.0201946),
+    0 2.76726px 4.31692px rgba(2,119,116,.0140573);
+}
+
+
+/* BODY */
+body {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    color: var(--blue-color-1);
+    user-select: none;
+}
+
+/* ADD POST FORM */
+.formulaire {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 50%;
+    align-items: center;
+}
+
+.formulaire .input-box {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.formulaire .input-box .text-label {
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 18px;
+}
+
+.formulaire .input-box .input {
+    width: 100%;
+    height: 55px;
+    background: var(--white-color-1);
+    border: 1px solid var(--white-color-2);
+    border-radius: 15px;
+    padding-left: 20px;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 18px;
+}
+
+.formulaire .input-box .textarea {
+    width: 100%;
+    height: 222px;
+    background: var(--white-color-1);
+    border: 1px solid var(--white-color-2);
+    border-radius: 15px;
+    padding: 20px;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 18px;
+    resize: none;
+}
+
+.formulaire .input-box .input::placeholder, .textarea::placeholder {
+    color: var(--grey-color);
+}
+
+.formulaire .submit-input {
+    height: 55px;
+    width: 100%;
+    margin-top: 45px;
+    background: var(--blue-color-2);
+    border-radius: 15px;
+    color: var(--white-color-1);
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 18px;
+    border: none;
+    cursor: pointer;
+}
+
+.formulaire .submit-input:hover {
+    background-color: #3485db;
+}

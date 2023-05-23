@@ -3,7 +3,7 @@
 
     $page = $_POST['page'];
 
-    $limit = 5;
+    $limit = 4;
 
     $offset = ($page - 1) * $limit;
 
@@ -15,7 +15,7 @@
     $output = '';
 
     if ($sql->rowCount() > 0) {
-        while ($row = $sql->fetch(PDO::FETCH_ASSOC)) {
+        while ($row = $sql->fetch()) {
             $profilePictureBlog = profilPicture($row['profile_photo'], $row['username']);
 
             $usernamePost = htmlspecialchars($row['username']);
@@ -55,7 +55,7 @@
                     <img src="' . $profilePictureBlog . '" alt="" class="profil_blog">
                     <div class="informations">
                         <div class="nomPrenom">' . $usernamePost . '</div>
-                        <a href="" class="titre-blog">' . $titlePost . '</a>
+                        <a href="http://127.0.0.1/ConnectEvents/website/pages/page_post?post_id='. $row['post_id'] .'" class="titre-blog">' . $titlePost . '</a>
                     </div>
                 </div>
 
