@@ -14,6 +14,8 @@ $excludedFiles = @(
     "README.md"
 )
 
+Write-Host "Nbr de fichier supp = " + $excludedFiles.Count
+
 $successCount = 0
 foreach ($file in $excludedFiles) {
     $fullPath = Join-Path -Path $outputPath -ChildPath $file
@@ -23,7 +25,9 @@ foreach ($file in $excludedFiles) {
     }
 }
 
-if ($successCount -eq $excludedFiles.Count - 8) {
+Write-Host = $successCount
+
+if ($successCount -eq $excludedFiles.Count) {
     Write-Host "Telechargement reussi." -ForegroundColor Green
     Write-Host " "
     Write-Host "Merci d'avoir telecharge ConnectEvent !" -ForegroundColor Blue
