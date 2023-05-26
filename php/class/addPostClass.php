@@ -12,7 +12,8 @@
             $insert_blog = $DB->prepare('INSERT INTO blogposts (title, content, user_id) VALUES(?, ?, ?)');
             $insert_blog->execute([$titre, $contenu, $userId]);
 
-            header('Location: http://127.0.0.1/ConnectEvents/website/pages/index');
+            header('Location: ' . ROOT_PATH . '/website/pages/');
+            exit();
 
         }
     }

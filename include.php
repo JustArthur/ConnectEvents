@@ -1,5 +1,6 @@
 <?php
     session_start();
+    define('ROOT_PATH', '/ConnectEvents/');
     
     include_once('php/database/connexionBD.php');
     include_once('php/class/inscriptionClass.php');

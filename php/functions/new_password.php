@@ -4,8 +4,8 @@
     include_once('../../include.php');
 
     if($_GET['token'] != $_SESSION['user_token']) {
-        header('Location: http://127.0.0.1/ConnectEvents/');
-        exit;
+        header('Location: ' . ROOT_PATH);
+        exit();
     }
 
     if(!empty($_POST)) {
@@ -54,8 +54,8 @@
     
                     mail($to, $subject, $message, $headers);
 
-                    header('Location: http://127.0.0.1/ConnectEvents/');
-                    exit;
+                    header('Location: ' . ROOT_PATH);
+                    exit();
                 }
             }
         }

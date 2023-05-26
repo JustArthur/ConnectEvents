@@ -91,8 +91,8 @@
                         htmlspecialchars($connexion_user['banner_image']) //4
                     );
 
-                    header('Location: http://127.0.0.1/ConnectEvents/website/pages/index');
-                    exit;
+                    header('Location: ' . ROOT_PATH . '/website/pages/');
+                    exit();
                 }
             }
 

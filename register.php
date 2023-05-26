@@ -22,7 +22,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Styles CSS -->
-    <link rel="stylesheet" href="./styles/login_register.css">
+    <link rel="stylesheet" href="<?= ROOT_PATH ?>/styles/login_register.css">
 
     <title>Créer mon compte</title>
 </head>
@@ -69,7 +69,7 @@
     </div>
 
     <div class="right-container">
-        <img src="./public/public_img/bg-login-register.jpg">
+        <img src="<?= ROOT_PATH ?>/public/public_img/bg-login-register.jpg">
     </div>
 </body>
 </html>
