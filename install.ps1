@@ -27,9 +27,8 @@ foreach ($file in $excludedFiles) {
 if ($successCount -eq $excludedFiles.Count) {
     Write-Host "Telechargement reussi." -ForegroundColor Green
 } else {
-    Write-Host "Telechargement échoué." -ForegroundColor Red
+    Write-Host "Telechargement échoue." -ForegroundColor Red
 }
 
 Write-Host " "
-Write-Host "Merci d'avoir téléchargé ConnectEvent !" -ForegroundColor Blue
-Set-ConsoleColor -Reset
+Write-Host "Merci d'avoir telecharge ConnectEvent !" -ForegroundColor Blue
