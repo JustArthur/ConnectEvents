@@ -22,4 +22,4 @@ foreach ($file in $excludedFiles) {
     }
 }
 
-Write-Host "Tout les fihciers ont bine été téléchargés. Merci de votre soutien !"
+Write-Host "Tout les fichiers ont bien été téléchargés. Merci de votre soutien !"
