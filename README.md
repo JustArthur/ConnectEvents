@@ -18,7 +18,7 @@ ConnectEvents est une application web développée en PHP qui permet aux utilisa
     
     ```C:\wamp64\www\```
 
-    Il ira ensuite créer un dossier ```ConnectEvents``` automatiquement.
+    Il ira ensuite créer un dossier ```ConnectEvents``` automatiquement dans votre répertoire ```www```.
 
 
 ```powershell
@@ -29,7 +29,7 @@ iwr -Uri "https://raw.githubusercontent.com/JustArthur/ConnectEvents/main/instal
 <a href="https://github.com/JustArthur/ConnectEvents/blob/main/DataBase_ConnectEvents.sql" >Cliquez ici</a> pour télécharger le fichier ```DataBase_ConnectEvents.sql```
 
 3. Modifiez le fichier de configuration pour y indiquer les paramètres de connexion à la base de données.
-Le ficher se trouve dans le répertoire ```php/database/connexionBD.php```
+Le fichier se trouve dans le répertoire ```php/database/connexionBD.php```
 
 ```php
 private $host    = 'localhost';     //nom de l'host  
@@ -40,13 +40,13 @@ private $pass    = '';              //mot de passe de la BDD
 4. Profiter du site web en local via ce lien <a href="http://127.0.0.1/ConnectEvents">ConnectEvent</a>
 
 ## Captures d'écran
-![Page d'accueil](https://github.com/JustArthur/ConnectEvents/blob/main/screenshot/ConnectEvent_1.png?raw=true)
-![Page d'inscription](https://github.com/JustArthur/ConnectEvents/blob/main/screenshot/ConnectEvent_2.png?raw=true)
-![Page de connexion](https://github.com/JustArthur/ConnectEvents/blob/main/screenshot/ConnectEvent_3.png?raw=true)
+<img src="https://github.com/JustArthur/ConnectEvents/blob/main/screenshot/ConnectEvent_1.png?raw=true"/>
+<img src="https://github.com/JustArthur/ConnectEvents/blob/main/screenshot/ConnectEvent_2.png?raw=true"/>
+<img src="https://github.com/JustArthur/ConnectEvents/blob/main/screenshot/ConnectEvent_3.png?raw=true"/>
 
-#
+
 ## Licence
 
 Ce projet est sous licence [MIT](https://github.com/JustArthur/ConnectEvents/blob/main/mit_license.md). Vous pouvez utiliser, modifier et distribuer ce code conformément aux conditions de la licence.
 
-N'hésitez pas à nous contacter pour toute question ou suggestion. Nous espérons que vous apprécierez l'utilisation de ConnectEvents !
+N'hésitez pas à me contacter pour toute question ou suggestion. J'espére que vous apprécierez l'utilisation de ConnectEvents !
