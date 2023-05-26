@@ -12,14 +12,24 @@ ConnectEvents est une application web développée en PHP qui permet aux utilisa
 
 ## Configuration et installation
 
-1. Clonez ce dépôt sur votre machine locale.
-    - Ou télécharger les fichier avec la commande powershell
+1. Télécharger les fichiers depuis votre windows en éxécutant si dessous la commande dans Windows PowerShell
+
+    ⚠️ Les fichiers seront installés dans le répertoire par défault de WAMP qui est :
+    
+    ```C:\wamp64\www\```
+
+    Il ira ensuite créer un dossier ```ConnectEvents``` automatiquement.
+
+
 ```powershell
-iwr -useb https://github.com/JustArthur/ConnectEvents/install.ps1
+iwr -Uri "https://raw.githubusercontent.com/JustArthur/ConnectEvents/main/install.ps1" | iex
 ```
 2. Configurez la base de données en important le fichier de structure fourni.
+
+<a href="https://github.com/JustArthur/ConnectEvents/blob/main/DataBase_ConnectEvents.sql">Cliquez ici</a> pour télécharger le fichier ```DataBase_ConnectEvents.sql```
+
 3. Modifiez le fichier de configuration pour y indiquer les paramètres de connexion à la base de données.
-    - Le ficher se trouve dans le répertoire ```php/database/connexionBD.php```
+Le ficher se trouve dans le répertoire ```php/database/connexionBD.php```
 
 ```php
 private $host    = 'localhost';     //nom de l'host  
@@ -27,16 +37,16 @@ private $name    = 'connectevent';  //nom de la base de donnée
 private $user    = '';              //utilisateur (permission requises -> SELECT, INSERT, UPDATE, DELETE)
 private $pass    = '';              //mot de passe de la BDD
 ```
-4. Déployez l'application sur votre serveur PHP.
+4. Profiter du site web en local via ce lien <a href="http://127.0.0.1/ConnectEvents">ConnectEvent</a>
 
 ## Captures d'écran
-![Page d'accueil](./screenshot/ConnectEvent_1.png)
-![Page d'inscription](./screenshot/ConnectEvent_3.png)
-![Page de connexion](./screenshot/ConnectEvent_2.png)
+![Page d'accueil](https://github.com/JustArthur/ConnectEvents/blob/main/screenshot/ConnectEvent_1.png?raw=true)
+![Page d'inscription](https://github.com/JustArthur/ConnectEvents/blob/main/screenshot/ConnectEvent_2.png?raw=true)
+![Page de connexion](https://github.com/JustArthur/ConnectEvents/blob/main/screenshot/ConnectEvent_3.png?raw=true)
 
 #
 ## Licence
 
-Ce projet est sous licence [MIT](./mit_license.md). Vous pouvez utiliser, modifier et distribuer ce code conformément aux conditions de la licence.
+Ce projet est sous licence [MIT](https://github.com/JustArthur/ConnectEvents/blob/main/mit_license.md). Vous pouvez utiliser, modifier et distribuer ce code conformément aux conditions de la licence.
 
 N'hésitez pas à nous contacter pour toute question ou suggestion. Nous espérons que vous apprécierez l'utilisation de ConnectEvents !
