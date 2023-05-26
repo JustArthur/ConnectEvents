@@ -1,10 +1,8 @@
 $url = "https://github.com/JustArthur/ConnectEvents.git"
 $outputPath = "C:\wamp64\www\ConnectEvents"
 
-# Effectuer le clone initial
 git clone $url $outputPath
 
-# Supprimer les fichiers et dossiers indésirables
 $excludedFiles = @(
     "screenshot/",
     "configuration-messagerie.md",
