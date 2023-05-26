@@ -47,6 +47,6 @@ private $pass    = '';              //mot de passe de la BDD
 
 ## Licence
 
-Ce projet est sous licence [MIT](https://github.com/JustArthur/ConnectEvents/blob/main/mit_license.md). Vous pouvez utiliser, modifier et distribuer ce code conformément aux conditions de la licence.
+Ce projet est sous licence [MIT](LICENSE). Vous pouvez utiliser, modifier et distribuer ce code conformément aux conditions de la licence.
 
 N'hésitez pas à me contacter pour toute question ou suggestion. J'espére que vous apprécierez l'utilisation de ConnectEvents !

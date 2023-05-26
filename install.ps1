@@ -11,7 +11,6 @@ $excludedFiles = @(
     "DataBase_ConnectEvents.sql",
     "install.ps1",
     "LICENSE",
-    "mit_license.md",
     "README.md"
 )
 
@@ -27,7 +26,7 @@ foreach ($file in $excludedFiles) {
 if ($successCount -eq $excludedFiles.Count) {
     Write-Host "Telechargement reussi." -ForegroundColor Green
 } else {
-    Write-Host "Telechargement échoue." -ForegroundColor Red
+    Write-Host "Telechargement echoue." -ForegroundColor Red
 }
 
 Write-Host " "
