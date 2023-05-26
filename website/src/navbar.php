@@ -1,5 +1,11 @@
 <?php
     $profile_picture = profilPicture($_SESSION['utilisateur'][3], $_SESSION['utilisateur'][1]);
+
+    $account = true;
+
+    if(empty($_SESSION['utilisateur'])) {
+        $account = false;
+    }
 ?>
 
 <nav class="navbar">

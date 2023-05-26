@@ -20,7 +20,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Styles CSS -->
+    <!-- Style CSS -->
     <link rel="stylesheet" href="./styles/login_register.css">
 
     <title>Se connecter à mon compte</title>
@@ -50,7 +50,7 @@
                     <input required type="password" id="password" name="password" class="input" placeholder="Entrez votre mot de passe">
                 </div>
 
-                <a href="php/functions/forgot_password.php" class="forgot-password">J'ai oublié mon mot de passe</a>
+                <a href="website/custom/forgot_password" class="forgot-password">J'ai oublié mon mot de passe</a>
 
                 <input type="submit" name="connexion" value="Connexion à mon compte" class="submit-input">
 
