@@ -25,6 +25,6 @@ ConnectEvents est une application web développée en PHP qui permet aux utilisa
 #
 ## Licence
 
-Ce projet est sous licence [MIT](lien-de-la-licence). Vous pouvez utiliser, modifier et distribuer ce code conformément aux conditions de la licence.
+Ce projet est sous licence [MIT](./mit_license.md). Vous pouvez utiliser, modifier et distribuer ce code conformément aux conditions de la licence.
 
 N'hésitez pas à nous contacter pour toute question ou suggestion. Nous espérons que vous apprécierez l'utilisation de ConnectEvents !
