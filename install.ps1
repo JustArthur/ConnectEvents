@@ -15,11 +15,21 @@ $excludedFiles = @(
     "README.md"
 )
 
+$successCount = 0
 foreach ($file in $excludedFiles) {
     $fullPath = Join-Path -Path $outputPath -ChildPath $file
     if ((Test-Path $fullPath) -or (Test-Path ($fullPath + ".*"))) {
         Remove-Item -Path $fullPath -Force -Recurse
+        $successCount++
     }
 }
 
-Write-Host "Tout les fichiers ont bien été téléchargés. Merci de votre soutien !"
+if ($successCount -eq $excludedFiles.Count) {
+    Write-Host "Telechargement reussi." -ForegroundColor Green
+} else {
+    Write-Host "Telechargement échoué." -ForegroundColor Red
+}
+
+Write-Host " "
+Write-Host "Merci d'avoir téléchargé ConnectEvent !" -ForegroundColor Blue
+Set-ConsoleColor -Reset
