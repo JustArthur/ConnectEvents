@@ -13,8 +13,20 @@ ConnectEvents est une application web développée en PHP qui permet aux utilisa
 ## Configuration et installation
 
 1. Clonez ce dépôt sur votre machine locale.
+    - Ou télécharger les fichier avec la commande powershell
+```powershell
+iwr -useb https://github.com/JustArthur/ConnectEvents/install.ps1
+```
 2. Configurez la base de données en important le fichier de structure fourni.
 3. Modifiez le fichier de configuration pour y indiquer les paramètres de connexion à la base de données.
+    - Le ficher se trouve dans le répertoire ```php/database/connexionBD.php```
+
+```php
+private $host    = 'localhost';     //nom de l'host  
+private $name    = 'connectevent';  //nom de la base de donnée
+private $user    = '';              //utilisateur (permission requises -> SELECT, INSERT, UPDATE, DELETE)
+private $pass    = '';              //mot de passe de la BDD
+```
 4. Déployez l'application sur votre serveur PHP.
 
 ## Captures d'écran
