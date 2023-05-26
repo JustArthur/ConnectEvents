@@ -26,7 +26,7 @@ iwr -Uri "https://raw.githubusercontent.com/JustArthur/ConnectEvents/main/instal
 ```
 2. Configurez la base de données en important le fichier de structure fourni.
 
-<a href="[https://raw.githubusercontent.com/JustArthur/ConnectEvents/main/DataBase_ConnectEvents.sql](https://raw.githubusercontent.com/JustArthur/ConnectEvents/main/DataBase_ConnectEvents.sql)" download target="blank">Cliquez ici</a> pour télécharger le fichier ```DataBase_ConnectEvents.sql```
+<a href="[https://raw.githubusercontent.com/JustArthur/ConnectEvents/main/DataBase_ConnectEvents.sql](https://raw.githubusercontent.com/JustArthur/ConnectEvents/main/DataBase_ConnectEvents.sql)" target="blank" download>Cliquez ici</a> pour télécharger le fichier ```DataBase_ConnectEvents.sql```
 
 3. Modifiez le fichier de configuration pour y indiquer les paramètres de connexion à la base de données.
 Le ficher se trouve dans le répertoire ```php/database/connexionBD.php```
