@@ -21,3 +21,5 @@ foreach ($file in $excludedFiles) {
         Remove-Item -Path $fullPath -Force -Recurse
     }
 }
+
+Write-Host "Tout les fihciers ont bine été téléchargés. Merci de votre soutien !"
