@@ -14,18 +14,13 @@ $excludedFiles = @(
     "README.md"
 )
 
-Write-Host "Nbr de fichier supp = " + $excludedFiles.Count
-
 $successCount = 0
 foreach ($file in $excludedFiles) {
     $fullPath = Join-Path -Path $outputPath -ChildPath $file
     if ((Test-Path $fullPath) -or (Test-Path ($fullPath + ".*"))) {
         Remove-Item -Path $fullPath -Force -Recurse
-        $successCount++
     }
 }
-
-Write-Host = $successCount
 
 if ($successCount -eq $excludedFiles.Count) {
     Write-Host "Telechargement reussi." -ForegroundColor Green
