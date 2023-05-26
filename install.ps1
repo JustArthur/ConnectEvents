@@ -27,5 +27,5 @@ if ($successCount -eq $excludedFiles.Count) {
     Write-Host "Merci d'avoir telecharge ConnectEvent !" -ForegroundColor Blue
     
 } else {
-    Write-Host "Certains fichiers n'ont pas pu etre telecharger." -ForegroundColor Red
+    Write-Host "Certains fichiers n'ont pas pu etre telecharger. Telecharger sous forme de fichier .zip depuis mon github." -ForegroundColor Red
 }
