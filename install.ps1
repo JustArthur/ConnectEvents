@@ -12,13 +12,12 @@ $excludedFiles = @(
     "install.ps1",
     "LICENSE",
     "mit_license.md",
-    "README.md",
-    ".gitignore"
+    "README.md"
 )
 
 foreach ($file in $excludedFiles) {
     $fullPath = Join-Path -Path $outputPath -ChildPath $file
-    if (Test-Path $fullPath -or Test-Path ($fullPath + ".*")) {
+    if ((Test-Path $fullPath) -or (Test-Path ($fullPath + ".*"))) {
         Remove-Item -Path $fullPath -Force -Recurse
     }
 }
