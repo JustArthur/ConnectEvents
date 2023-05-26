@@ -108,13 +108,19 @@ body {
 
 .blog .info-blog .user-info .informations .titre-blog {
     font-weight: 700;
-    font-size: 35px;
+    font-size: 30px;
     line-height: 43px;
     text-decoration: none;
     color: var(--blue-color-1);
+    max-width: 830px;
 }
 
-.blog .info-blog .user-info .informations .titre-blog:hover {
+.blog .info-blog .date-blog {
+    width: max-content;
+    height: max-content;
+}
+
+.blog .info-blog .user-info .informations .titre-blog:hover:not(.no_hover) {
     text-decoration: underline;
     color: var(--blue-color-2);
 }

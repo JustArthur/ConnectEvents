@@ -3,10 +3,12 @@
     ini_set("display_errors", 1);
     include_once('include.php');
 
+    $email = '';
+
     if(!empty($_POST)) {
         extract($_POST);
         if(isset($_POST['connexion'])) {
-            [$erreur] = $_CONNEXION->connexion_user($email, $password);
+            [$erreur, $email] = $_CONNEXION->connexion_user($email, $password);
         }
     }
 ?>
@@ -40,7 +42,7 @@
 
                 <div class="input-box">
                     <label for="email" class="text-label">Adresse mail</label>
-                    <input required type="email" id="email" name="email" class="input" placeholder="Entrez votre adresse mail">
+                    <input required type="email" id="email" name="email" value="<?= $email ?>" class="input" placeholder="Entrez votre adresse mail">
                 </div>
 
                 <div class="input-box">

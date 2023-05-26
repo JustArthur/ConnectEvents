@@ -53,6 +53,8 @@ body {
 
 .navbar .logo {
     margin-right: 30px;
+    text-decoration: none;
+    color: var(--blue-color-1);
 }
 
 .navbar .logo .bleu {

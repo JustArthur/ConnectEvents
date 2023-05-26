@@ -97,7 +97,7 @@
             }
 
 
-            return [$this->erreur];
+            return [$this->erreur, $identifiant, $email];
         }
     }
 ?>

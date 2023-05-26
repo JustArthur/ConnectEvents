@@ -9,6 +9,7 @@ ConnectEvents est une application web développée en PHP qui permet aux utilisa
 - 📇 Gestionnaire de contacts : Les utilisateurs peuvent ajouter, afficher, modifier et supprimer des contacts dans leur carnet d'adresses.
 - 🔒 Sécurité des données : Les mots de passe des utilisateurs sont stockés de manière sécurisée grâce à un hachage fort, assurant la confidentialité et l'intégrité des données.
 
+
 ## Configuration et installation
 
 1. Clonez ce dépôt sur votre machine locale.
@@ -16,6 +17,12 @@ ConnectEvents est une application web développée en PHP qui permet aux utilisa
 3. Modifiez le fichier de configuration pour y indiquer les paramètres de connexion à la base de données.
 4. Déployez l'application sur votre serveur PHP.
 
+## Captures d'écran
+![Page d'accueil](./screenshot/ConnectEvent_1.png)
+![Page d'inscription](./screenshot/ConnectEvent_3.png)
+![Page de connexion](./screenshot/ConnectEvent_2.png)
+
+#
 ## Licence
 
 Ce projet est sous licence [MIT](lien-de-la-licence). Vous pouvez utiliser, modifier et distribuer ce code conformément aux conditions de la licence.

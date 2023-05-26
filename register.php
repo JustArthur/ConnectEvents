@@ -3,10 +3,13 @@
     ini_set("display_errors", 1);
     include_once('./include.php');
 
+    $identifiant = '';
+    $email = '';
+
     if(!empty($_POST)) {
         extract($_POST);
         if(isset($_POST['inscription'])) {
-            [$erreur] = $_INSCRIPTION->inscription_user($identifiant, $email, $password, $conf_password);
+            [$erreur, $identifiant, $email] = $_INSCRIPTION->inscription_user($identifiant, $email, $password, $conf_password);
         }
     }
 ?>
@@ -40,12 +43,12 @@
 
                 <div class="input-box">
                     <label for="identifiant" class="text-label">Identifiant</label>
-                    <input required type="text" id="identifiant" name="identifiant" class="input" placeholder="Entrez votre identifiant">
+                    <input required type="text" id="identifiant" name="identifiant" value="<?= $identifiant ?>" class="input" placeholder="Entrez votre identifiant">
                 </div>
 
                 <div class="input-box">
                     <label for="email" class="text-label">Adresse mail</label>
-                    <input required type="email" id="email" name="email" class="input" placeholder="Entrez votre adresse mail">
+                    <input required type="email" id="email" name="email" value="<?= $email ?>" class="input" placeholder="Entrez votre adresse mail">
                 </div>
 
                 <div class="input-box">

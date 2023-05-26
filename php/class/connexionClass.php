@@ -48,7 +48,7 @@
                 }
             }
 
-            return [$this->erreur];
+            return [$this->erreur, $email];
         }
     }
 ?>

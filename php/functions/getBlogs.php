@@ -7,7 +7,7 @@
 
     $offset = ($page - 1) * $limit;
 
-    $sql = $DB->prepare('SELECT blogposts.post_id, blogposts.title, blogposts.content, blogposts.user_id, blogposts.created_at, users.username, users.profile_photo FROM blogposts INNER JOIN users ON users.user_id = blogposts.user_id LIMIT :offset, :limit');
+    $sql = $DB->prepare('SELECT blogposts.post_id, blogposts.title, blogposts.content, blogposts.user_id, blogposts.created_at, users.username, users.profile_photo FROM blogposts INNER JOIN users ON users.user_id = blogposts.user_id ORDER BY created_at DESC LIMIT :offset, :limit');
     $sql->bindValue(':offset', $offset, PDO::PARAM_INT);
     $sql->bindValue(':limit', $limit, PDO::PARAM_INT);
     $sql->execute();
