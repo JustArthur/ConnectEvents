@@ -7,14 +7,11 @@
         private $avatar;
 
         public function inscription_user($identifiant, $email, $password, $conf_password) {
-            global $DB;
-
 
             $username = (String) htmlspecialchars(trim($identifiant));
             $email = (String) htmlspecialchars(trim($email));
             $password = (String) htmlspecialchars(trim($password));
             $conf_password = (String) htmlspecialchars(trim($conf_password));
-
 
 
             $this->erreur = (String) "";
@@ -25,8 +22,7 @@
 
 
             if(isset($username)) {
-                $verif_user_exsite = $DB->prepare("SELECT user_id FROM users WHERE email = ?");
-                $verif_user_exsite->execute([$email]);
+                $verif_user_exsite = getUserIdByEmail($email);
                 $verif_user_exsite = $verif_user_exsite->fetch();
 
                 if(isset($verif_user_exsite['user_id'])) {
@@ -67,29 +63,16 @@
 
                     $_SESSION['user_token'] = generateToken();
 
-                    $insert_user = $DB->prepare("INSERT INTO users (username, email, password, profile_photo, banner_image, reset_token) VALUES(?, ?, ?, ?, ?, ?);");
-                    $insert_user->execute([$username, $email, $crypt_password, $avatar, $banner, $_SESSION['user_token']]);
+                    insertUser($username, $email, $crypt_password, $avatar, $banner, $_SESSION['user_token']);
 
-                    $connexion_user = $DB->prepare("SELECT * FROM users WHERE email = ?");
-                    $connexion_user->execute([$email]);
-                    $connexion_user = $connexion_user->fetch();
+                    userLogInSession($email);
 
-                    $to = $email;
                     $subject = 'Activation de votre compte ConnectEvent';
-                    $message = 'Bonjour, Merci de vous être inscrit à ConnectEvents ! Pour confimer votre compte merci de cliquez sur ce lien : http://127.0.0.1/ConnectEvents/website/account_activation';
-
+                    $message = 'Bonjour, Merci de vous être inscrit à ConnectEvents ! Pour confimer votre compte merci de cliquez sur ce lien : ' . ROOT_PATH . '/website/custom_pages/account_activation';
                     $headers = "Content-Type: text/plain; charset=utf-8\r\n";
                     $headers .= "From: maxxxozou@gmail.com\r\n";
 
-                    mail($to, $subject, $message, $headers);
-
-                    $_SESSION['utilisateur'] = array(
-                        htmlspecialchars($connexion_user['user_id']), //0
-                        htmlspecialchars($connexion_user['username']), //1
-                        htmlspecialchars($connexion_user['email']), //2
-                        htmlspecialchars($connexion_user['profile_photo']), //3
-                        htmlspecialchars($connexion_user['banner_image']) //4
-                    );
+                    sendMail($email, $subject, $message, $headers);
 
                     header('Location: ' . ROOT_PATH . '/website/pages/');
                     exit();

@@ -14,8 +14,7 @@
 
             $valid = true;
 
-            $user_info = $DB->prepare('SELECT reset_token, user_id, email, password FROM users WHERE reset_token = ?');
-            $user_info->execute([$_SESSION['user_token']]);
+            $user_info = getUserByToken($_SESSION['user_token']);
             $user_info = $user_info->fetch();
 
             if($user_info['reset_token'] == $_GET['token'] && $user_info['reset_token'] == $_SESSION['user_token']) {
@@ -42,17 +41,15 @@
                 if($valid) {
                     $crypt_password = password_hash($password, PASSWORD_BCRYPT);
 
-                    $update_password = $DB->prepare('UPDATE users SET password = ?, reset_token = "" WHERE user_id = ?');
-                    $update_password->execute([$crypt_password, $user_info['user_id']]);
+                    changePassword($crypt_password, $user_info['user_id']);
     
-                    $to = $user_info['email'];
                     $subject = 'Changement de votre mot de passe de votre compte ConnectEvent';
                     $message = 'Bonjour, votre mot de passe à bien été changé';
         
                     $headers = "Content-Type: text/plain; charset=utf-8\r\n";
                     $headers .= "From: maxxxozou@gmail.com\r\n";
     
-                    mail($to, $subject, $message, $headers);
+                    sendMail($user_info['email'], $subject, $message, $headers);
 
                     header('Location: ' . ROOT_PATH);
                     exit();
@@ -70,7 +67,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="../../styles/login_register.css">
-    <title>Document</title>
+    <title>Changement du mot de passe</title>
 </head>
 <body>
     <div class="left-container">
@@ -105,7 +102,7 @@
     </div>
 
     <div class="right-container">
-        <img src="../../public/public_img/bg-login-register.jpg">
+        <img src="<?= ROOT_PATH ?>public/public_img/bg-login-register.jpg">
     </div>
 </body>
 </html>

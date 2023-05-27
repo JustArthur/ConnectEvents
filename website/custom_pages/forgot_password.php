@@ -9,23 +9,20 @@
         extract($_POST);
         if(isset($_POST['send_mail'])) {
 
-            $select_mail = $DB->prepare('SELECT email FROM users WHERE email = ?');
-            $select_mail->execute([$email]);
+            $select_mail = getUserEmailByEmail($email);
             $select_mail = $select_mail->fetch();
 
-            $update_token = $DB->prepare('UPDATE users set reset_token = ? WHERE email = ?');
-            $update_token->execute([$_SESSION['user_token'], $email]);
+            setUserToken($_SESSION['user_token'], $email);
 
             if(isset($select_mail['email'])) {
 
-                $to = $email;
                 $subject = 'Changer le mot de passe de votre compte ConnectEvent';
-                $message = 'Bonjour, vous avez fait une demande pour changer votre mot de pasee, merci de cliquer sur ce lien : http://127.0.0.1/ConnectEvents/php/functions/new_password?token='. $_SESSION['user_token'];
+                $message = 'Bonjour, vous avez fait une demande pour changer votre mot de pasee, merci de cliquer sur ce lien : ' . ROOT_PATH . 'php/functions/new_password?token=' . $_SESSION['user_token'];
     
                 $headers = "Content-Type: text/plain; charset=utf-8\r\n";
                 $headers .= "From: maxxxozou@gmail.com\r\n";
 
-                if(mail($to, $subject, $message, $headers)) {
+                if(sendMail($email, $subject, $message, $headers)) {
                     $erreur = "Le mail à bien été envoyé à l'adresse " . $email;
                 } else {
                     $erreur = "Impossible d'envoyé le mail.";
@@ -43,7 +40,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="../../styles/login_register.css">
-    <title>Document</title>
+    <title>J'ai oublié mon mot de passe</title>
 </head>
 <body>
     <div class="left-container">
@@ -73,7 +70,7 @@
     </div>
 
     <div class="right-container">
-        <img src="../../public/public_img/bg-login-register.jpg">
+        <img src="<?= ROOT_PATH ?>public/public_img/bg-login-register.jpg">
     </div>
 </body>
 </html>

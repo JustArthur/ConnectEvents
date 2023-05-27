@@ -2,21 +2,19 @@
     include_once('../../include.php');
 
     if(empty($_SESSION['utilisateur'])) {
-        header('Location: http://127.0.0.1/ConnectEvents/');
+        header('Location: ' . ROOT_PATH);
         exit;
     }
 
-    $sql = $DB->prepare('SELECT blogposts.post_id, blogposts.title, blogposts.content, blogposts.user_id, blogposts.created_at, users.username, users.profile_photo FROM blogposts INNER JOIN users ON users.user_id = blogposts.user_id WHERE blogposts.post_id = :idPost');
-    $sql->bindValue(':idPost', $_GET['post_id'], PDO::PARAM_INT);
-    $sql->execute();
+    $sql = getPostForBlog($offset, $limit);
     $res = $sql->fetch();
 
     $profilePictureBlog = profilPicture($res['profile_photo'], $res['username']);
 
-    $username = htmlspecialchars($res['username']);
-    $titrePost = htmlspecialchars($res['title']);
-    $contentPost = htmlspecialchars($res['content']);
-    $datePost = htmlspecialchars($res['created_at']);
+    $username = htmlspecialchars(trim($res['username']));
+    $titrePost = htmlspecialchars(trim($res['title']));
+    $contentPost = htmlspecialchars(trim($res['content']));
+    $datePost = htmlspecialchars(trim($res['created_at']));
 
     $currentDateTime = new DateTime();
     $dateTimeToFormat = new DateTime($datePost);
@@ -55,7 +53,7 @@
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 
-    <title>Document</title>
+    <title><?= $titrePost ?></title>
 </head>
 <body>
     <?php include_once('../src/navbar.php') ?>

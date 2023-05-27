@@ -2,15 +2,10 @@
     include_once('../../include.php');
 
     $page = $_POST['page'];
-
     $limit = 4;
-
     $offset = ($page - 1) * $limit;
 
-    $sql = $DB->prepare('SELECT blogposts.post_id, blogposts.title, blogposts.content, blogposts.user_id, blogposts.created_at, users.username, users.profile_photo FROM blogposts INNER JOIN users ON users.user_id = blogposts.user_id ORDER BY created_at DESC LIMIT :offset, :limit');
-    $sql->bindValue(':offset', $offset, PDO::PARAM_INT);
-    $sql->bindValue(':limit', $limit, PDO::PARAM_INT);
-    $sql->execute();
+    $sql = getPostForBlog($offset, $limit);
 
     $output = '';
 
@@ -18,16 +13,14 @@
         while ($row = $sql->fetch()) {
             $profilePictureBlog = profilPicture($row['profile_photo'], $row['username']);
 
-            $usernamePost = htmlspecialchars($row['username']);
-            $titlePost = htmlspecialchars($row['title']);
-            $datePost = htmlspecialchars($row['created_at']);
+            $usernamePost = htmlspecialchars(trim($row['username']));
+            $titlePost = htmlspecialchars(trim($row['title']));
+            $datePost = htmlspecialchars(trim($row['created_at']));
+            $contentPost = htmlspecialchars(trim($row['content']));
 
             $currentDateTime = new DateTime();
-
             $dateTimeToFormat = new DateTime($datePost);
-
             $formattedDate = $dateTimeToFormat->format('d / m / Y');
-
             $diff = $currentDateTime->diff($dateTimeToFormat);
 
             if($diff->y > 0) {
@@ -63,7 +56,7 @@
             </div>
 
             <div class="contenu-blog">'.
-                $row['content']
+                $contentPost
             .'</div>
         </div>';
         }

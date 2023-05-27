@@ -2,7 +2,7 @@
     include_once('../../include.php');
 
     if(empty($_SESSION['utilisateur'])) {
-        header('Location: http://127.0.0.1/ConnectEvents/');
+        header('Location: ' . ROOT_PATH);
         exit;
     }
 
