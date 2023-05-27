@@ -3,6 +3,11 @@
     ini_set("display_errors", 1);
     include_once('../../include.php');
 
+    if(empty($_GET['token'])) {
+        header('Location: ' . ROOT_PATH);
+        exit();
+    }
+
     if($_GET['token'] != $_SESSION['user_token']) {
         header('Location: ' . ROOT_PATH);
         exit();
@@ -17,42 +22,44 @@
             $user_info = getUserByToken($_SESSION['user_token']);
             $user_info = $user_info->fetch();
 
-            if($user_info['reset_token'] == $_GET['token'] && $user_info['reset_token'] == $_SESSION['user_token']) {
+            if($user_info['reset_token'] == $_GET['token']) {
+                if($user_info['reset_token'] == $_SESSION['user_token']) {
+                    
+                    $weakPasswords = ['password', '123456', 'qwerty', 'abc123', 'letmein', 'admin', 'welcome', '123456789', 'password123', 'iloveyou', 'sunshine', '1234567', '12345678', '1234567890', 'qwertyuiop', 'asdfghjkl', 'zxcvbnm', 'qwerty123', '987654321', 'passw0rd', 'football', 'baseball', 'soccer', 'monkey', '123123', 'hello', 'superman', 'qazwsx', 'michael', 'login', 'abc123', '1q2w3e4r', 'qwertyuiop', 'passw0rd', 'starwars', 'password1', '123qwe', '123456a', '1qaz2wsx', 'trustno1', 'princess', 'sunshine', 'password123', '123abc', 'welcome', 'admin', 'letmein', '123456789', 'football', 'iloveyou', '12345', 'qwerty123', '1234567', '12345678', 'qwerty12345', 'dragon', '1234', 'baseball', 'monkey', 'abcde', 'password!', '123', '1234567890', 'qazwsxedc', 'admin123', 'pass', '123456789a', 'qwertyu', '111111', '123abc!', '123456789!', 'a123456', 'letmein1', '000000', 'test', 'pass123', '123qwe!', '1234qwer', '987654321', '123123', 'qwe123', 'google', 'password!', 'internet', '12345qwert', 'qwerty123!', 'abcd1234', 'changeme', 'computer', 'password12', 'qwertyuio', '999999', 'zxcvbn', 'password1234', '123qweasd', 'q1w2e3r4t5', 'passw0rd1', 'sunshine1', 'qwe123!', 'admin1234', 'password!', 'password123!', 'qazwsx123', 'zaq1zaq1', 'zaqwsx', 'qweasdzxc', 'asdf1234', 'welcome1', 'qweasdzxc!'];              
 
-                $weakPasswords = ['password', '123456', 'qwerty', 'abc123', 'letmein', 'admin', 'welcome', '123456789', 'password123', 'iloveyou', 'sunshine', '1234567', '12345678', '1234567890', 'qwertyuiop', 'asdfghjkl', 'zxcvbnm', 'qwerty123', '987654321', 'passw0rd', 'football', 'baseball', 'soccer', 'monkey', '123123', 'hello', 'superman', 'qazwsx', 'michael', 'login', 'abc123', '1q2w3e4r', 'qwertyuiop', 'passw0rd', 'starwars', 'password1', '123qwe', '123456a', '1qaz2wsx', 'trustno1', 'princess', 'sunshine', 'password123', '123abc', 'welcome', 'admin', 'letmein', '123456789', 'football', 'iloveyou', '12345', 'qwerty123', '1234567', '12345678', 'qwerty12345', 'dragon', '1234', 'baseball', 'monkey', 'abcde', 'password!', '123', '1234567890', 'qazwsxedc', 'admin123', 'pass', '123456789a', 'qwertyu', '111111', '123abc!', '123456789!', 'a123456', 'letmein1', '000000', 'test', 'pass123', '123qwe!', '1234qwer', '987654321', '123123', 'qwe123', 'google', 'password!', 'internet', '12345qwert', 'qwerty123!', 'abcd1234', 'changeme', 'computer', 'password12', 'qwertyuio', '999999', 'zxcvbn', 'password1234', '123qweasd', 'q1w2e3r4t5', 'passw0rd1', 'sunshine1', 'qwe123!', 'admin1234', 'password!', 'password123!', 'qazwsx123', 'zaq1zaq1', 'zaqwsx', 'qweasdzxc', 'asdf1234', 'welcome1', 'qweasdzxc!'];              
-
-                foreach($weakPasswords as $faiblePassword) {
-                    if($faiblePassword == $password) {
-                        $valid = false;
-                        $erreur = 'Le mot de passe est trop faible. Choisissez-en un autre';
+                    foreach($weakPasswords as $faiblePassword) {
+                        if($faiblePassword == $password) {
+                            $valid = false;
+                            $erreur = 'Le mot de passe est trop faible. Choisissez-en un autre';
+                        }
                     }
-                }
-
-                if($password != $conf_password) {
-                    $valid = false;
-                    $erreur = 'Les mots de passe de sont pas identiques';
-                }
-
-                if(password_verify($password, $user_info['password'])) {
-                    $valid = false;
-                    $erreur = 'Merci de choisir un mot de passe différent de celui actuel';
-                }
-
-                if($valid) {
-                    $crypt_password = password_hash($password, PASSWORD_BCRYPT);
-
-                    changePassword($crypt_password, $user_info['user_id']);
     
-                    $subject = 'Changement de votre mot de passe de votre compte ConnectEvent';
-                    $message = 'Bonjour, votre mot de passe à bien été changé';
+                    if($password != $conf_password) {
+                        $valid = false;
+                        $erreur = 'Les mots de passe de sont pas identiques';
+                    }
+    
+                    if(password_verify($password, $user_info['password'])) {
+                        $valid = false;
+                        $erreur = 'Merci de choisir un mot de passe différent de celui actuel';
+                    }
+    
+                    if($valid) {
+                        $crypt_password = password_hash($password, PASSWORD_BCRYPT);
+    
+                        changePassword($crypt_password, $user_info['user_id']);
         
-                    $headers = "Content-Type: text/plain; charset=utf-8\r\n";
-                    $headers .= "From: maxxxozou@gmail.com\r\n";
+                        $subject = 'Changement de votre mot de passe de votre compte ConnectEvent';
+                        $message = 'Bonjour, votre mot de passe à bien été changé';
+            
+                        $headers = "Content-Type: text/plain; charset=utf-8\r\n";
+                        $headers .= "From: maxxxozou@gmail.com\r\n";
+        
+                        sendMail($user_info['email'], $subject, $message, $headers);
     
-                    sendMail($user_info['email'], $subject, $message, $headers);
-
-                    header('Location: ' . ROOT_PATH);
-                    exit();
+                        header('Location: ' . ROOT_PATH);
+                        exit();
+                    }
                 }
             }
         }

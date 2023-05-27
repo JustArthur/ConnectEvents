@@ -17,7 +17,7 @@
             if(isset($select_mail['email'])) {
 
                 $subject = 'Changer le mot de passe de votre compte ConnectEvent';
-                $message = 'Bonjour, vous avez fait une demande pour changer votre mot de pasee, merci de cliquer sur ce lien : ' . ROOT_PATH . 'php/functions/new_password?token=' . $_SESSION['user_token'];
+                $message = 'Bonjour, vous avez fait une demande pour changer votre mot de pasee, merci de cliquer sur ce lien : ' . ROOT_PATH . 'website/custom_pages/new_password?token=' . $_SESSION['user_token'];
     
                 $headers = "Content-Type: text/plain; charset=utf-8\r\n";
                 $headers .= "From: maxxxozou@gmail.com\r\n";
