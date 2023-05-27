@@ -15,11 +15,11 @@ ConnectEvents est une application web développée en PHP qui permet aux utilisa
 1. Télécharger les fichiers depuis votre ordinateur Linux, Mac ou Windows en éxécutant si dessous la commande approprié.
 
 ## Windows
-    ⚠️ Les fichiers seront installés dans le répertoire par défault de WAMP qui est :
+⚠️ Les fichiers seront installés dans le répertoire par défault de WAMP qui est :
     
-    ```C:\wamp64\www\```
+```C:\wamp64\www\```
 
-    Il ira ensuite créer un dossier ```ConnectEvents``` automatiquement dans votre répertoire ```www```.
+Il ira ensuite créer un dossier ```ConnectEvents``` automatiquement dans votre répertoire ```www```.
 
 
 ```powershell
@@ -28,15 +28,15 @@ iwr -Uri "https://raw.githubusercontent.com/JustArthur/ConnectEvents/main/instal
 ```
 
 ## Linux
-    ⚠️ Les fichiers seront installés dans le répertoire par défault de LAMP qui est :
+ ⚠️ Les fichiers seront installés dans le répertoire par défault de LAMP qui est :
     
-    ```var/www/html```
+```var/www/html```
 
-    Il ira ensuite créer un dossier ```ConnectEvents``` automatiquement dans votre répertoire ```html```.
+Il ira ensuite créer un dossier ```ConnectEvents``` automatiquement dans votre répertoire ```html```.
 
 
 ```sh
-#Commande Windows à faire dans PowerShell
+#Commande Linux à faire dans le terminal
 iwr -Uri "https://raw.githubusercontent.com/JustArthur/ConnectEvents/main/install.sh" | sh
 ```
 
