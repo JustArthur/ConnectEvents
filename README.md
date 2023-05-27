@@ -12,8 +12,9 @@ ConnectEvents est une application web développée en PHP qui permet aux utilisa
 
 ## Configuration et installation
 
-1. Télécharger les fichiers depuis votre windows en éxécutant si dessous la commande dans Windows PowerShell
+1. Télécharger les fichiers depuis votre ordinateur Linux, Mac ou Windows en éxécutant si dessous la commande approprié.
 
+## Windows
     ⚠️ Les fichiers seront installés dans le répertoire par défault de WAMP qui est :
     
     ```C:\wamp64\www\```
@@ -22,8 +23,24 @@ ConnectEvents est une application web développée en PHP qui permet aux utilisa
 
 
 ```powershell
+#Commande Windows à faire dans PowerShell
 iwr -Uri "https://raw.githubusercontent.com/JustArthur/ConnectEvents/main/install.ps1" | iex
 ```
+
+## Linux
+    ⚠️ Les fichiers seront installés dans le répertoire par défault de LAMP qui est :
+    
+    ```var/www/html```
+
+    Il ira ensuite créer un dossier ```ConnectEvents``` automatiquement dans votre répertoire ```html```.
+
+
+```sh
+#Commande Windows à faire dans PowerShell
+iwr -Uri "https://raw.githubusercontent.com/JustArthur/ConnectEvents/main/install.sh" | sh
+```
+
+
 2. Configurez la base de données en important le fichier de structure fourni.
 
 <a href="https://github.com/JustArthur/ConnectEvents/blob/main/DataBase_ConnectEvents.sql" >Cliquez ici</a> pour télécharger le fichier ```DataBase_ConnectEvents.sql```
