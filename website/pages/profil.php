@@ -19,7 +19,7 @@
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 
-    <title>Profil de <?= $_SESSION['utilisateur'][1] ?></title>
+    <title>Profil de <?= $_SESSION['utilisateur'][3] ?></title>
 </head>
 <body>
     <?php include_once('../src/navbar.php') ?>
@@ -33,6 +33,11 @@
         <from class="user_informations">
             <div class="settings_user settings">
                 <h2 class="titre_compte">Paramètres utilisateur</h2>
+                <div class="input-box">
+                    <label for="username" class="text-label">Nom d'utilisateur</label>
+                    <input type="text" id="username" name="username" value="<?= $_SESSION['utilisateur'][3] ?>" class="input" placeholder="Entrez votre nom d'utilisateur">
+                </div>
+
                 <div class="input-box">
                     <label for="email" class="text-label">Adresse mail</label>
                     <input type="email" id="email" name="email" value="<?= $_SESSION['utilisateur'][4] ?>" class="input" placeholder="Entrez votre adresse mail">

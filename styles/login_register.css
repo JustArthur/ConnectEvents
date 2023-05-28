@@ -132,7 +132,7 @@ body {
 }
 
 .container .formulaire .submit-input:hover {
-    background-color: #3485db;
+    background-color: var(--blue-color-2);
 }
 
 .container .formulaire .info-compte {

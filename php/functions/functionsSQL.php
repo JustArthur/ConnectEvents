@@ -163,4 +163,14 @@
         
         return $sql;
     }
+
+    function OTPCodeActivated($userId) {
+        $DBB = new connexionDB();
+        $DB = $DBB->DB();
+
+        $sql = $DB->prepare('UPDATE users SET otp_activate = 1 WHERE user_id = ?');
+        $sql->execute([$userId]);
+        
+        return $sql;
+    }
 ?>
