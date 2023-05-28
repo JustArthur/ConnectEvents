@@ -41,20 +41,20 @@
 
     function bannerPicture($sessionBannerPicture, $sessionUsername) {
         switch($sessionBannerPicture) {
-            case 'banner_1.png';
-                $banner_picture = 'http://127.0.0.1/ConnectEvents/private/private_img/users_img/default_img/banner_picture/banner_1.png';
+            case 'banner_1.jpg';
+                $banner_picture = 'http://127.0.0.1/ConnectEvents/private/private_img/users_img/default_img/banner_picture/banner_1.jpg';
                 break;
     
-            case 'banner_2.png';
-                $banner_picture = 'http://127.0.0.1/ConnectEvents/private/private_img/users_img/default_img/banner_picture/banner_2.png';
+            case 'banner_2.jpg';
+                $banner_picture = 'http://127.0.0.1/ConnectEvents/private/private_img/users_img/default_img/banner_picture/banner_2.jpg';
                 break;
     
-            case 'banner_3.png';
-                $banner_picture = 'http://127.0.0.1/ConnectEvents/private/private_img/users_img/default_img/banner_picture/banner_3.png';
+            case 'banner_3.jpg';
+                $banner_picture = 'http://127.0.0.1/ConnectEvents/private/private_img/users_img/default_img/banner_picture/banner_3.jpg';
                 break;
     
-            case 'banner_4.png';
-                $banner_picture = 'http://127.0.0.1/ConnectEvents/private/private_img/users_img/default_img/banner_picture/banner_4.png';
+            case 'banner_4.jpg';
+                $banner_picture = 'http://127.0.0.1/ConnectEvents/private/private_img/users_img/default_img/banner_picture/banner_4.jpg';
                 break;
     
             default:
@@ -63,7 +63,6 @@
 
         return $banner_picture;
     }
-
 
     function sendMail($to, $subject, $message, $headers) {
         mail($to, $subject, $message, $headers);

@@ -12,10 +12,15 @@
 
         $_SESSION['utilisateur'] = array(
             htmlspecialchars(trim($sql['user_id'])), //0
-            htmlspecialchars(trim($sql['username'])), //1
-            htmlspecialchars(trim($sql['email'])), //2
-            htmlspecialchars(trim($sql['profile_photo'])), //3
-            htmlspecialchars(trim($sql['banner_image'])) //4
+            htmlspecialchars(trim($sql['last_name'])), //1
+            htmlspecialchars(trim($sql['first_name'])), //2
+            htmlspecialchars(trim($sql['username'])), //3
+            htmlspecialchars(trim($sql['email'])), //4
+            htmlspecialchars(trim($sql['profile_photo'])), //5
+            htmlspecialchars(trim($sql['banner_image'])), //6
+            htmlspecialchars(trim($sql['created_at'])), //7
+            htmlspecialchars(trim($sql['a2f_activate'])), //8
+            htmlspecialchars(trim($sql['is_verified'])) //9
         );
 
         return $sql;

@@ -13,4 +13,9 @@
     $_INSCRIPTION = new Inscription;
     $_CONNEXION = new Connexion;
     $_ADDPOST = new addPost;
+
+    if(!empty($_SESSION['utilisateur'])) {
+        $profile_picture = profilPicture($_SESSION['utilisateur'][5], $_SESSION['utilisateur'][1]);
+        $banner_picture = bannerPicture($_SESSION['utilisateur'][6], $_SESSION['utilisateur'][1]);
+    }
 ?>

@@ -74,7 +74,7 @@
 
                     sendMail($email, $subject, $message, $headers);
 
-                    header('Location: ' . ROOT_PATH . '/website/pages/');
+                    header('Location: ' . ROOT_PATH . 'website/pages/');
                     exit();
                 }
             }

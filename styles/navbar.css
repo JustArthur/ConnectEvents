@@ -29,18 +29,10 @@
 }
 
 
-/* BODY */
-body {
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    color: var(--blue-color-1);
-    user-select: none;
-}
-
-
 /* NAVBAR */
 .navbar {
+    position: fixed;
+    z-index: 999;
     width: 100%;
     height: 80px;
     padding: 0 32px 0 27px;
@@ -64,39 +56,6 @@ body {
 .navbar .user_info {
     display: flex;
     align-items: center;
-    gap: 25px;
-}
-
-.navbar .user_info .add_post {
-    display: flex;
-    align-items: center;
-    padding: 11px 18px;
-    gap: 7px;
-    background: #2978CC;
-    border-radius: 10px;
-    font-weight: 700;
-    font-size: 15px;
-    color: var(--white-color-1);
-    text-decoration: none;
-}
-
-.navbar .user_info .pfp{
-    display: inline-block;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-}
-
-.navbar .user_info .deco {
-    display: flex;
-    align-items: center;
-    padding: 11px 18px;
-    background-color: red;
-    text-decoration: none;
-    border-radius: 10px;
-    font-weight: 700;
-    font-size: 15px;
-    color: var(--white-color-1);
 }
 
 .navbar .user_info .btn_co {
@@ -104,7 +63,62 @@ body {
     gap: 5px;
 }
 
-.navbar .user_info .btn_co a {
+.navbar .user_info .btn_co .add_post {
+    display: flex;
+    align-items: center;
+    padding: 11px 18px;
+    gap: 7px;
+    background: var(--blue-color-1);
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--white-color-1);
+    border: 2px solid var(--blue-color-1);
+    text-decoration: none;
+    transition: .3s ease-in-out;
+}
+
+.navbar .user_info .btn_co .add_post:hover {
+    background: transparent !important;
+    color: var(--blue-color-1);
+    transition: .3s ease-in-out;
+}
+
+.navbar .user_info .btn_co .pfp{
+    display: inline-block;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    margin-left: 20px;
+}
+
+.navbar .user_info .btn_co .deco {
+    display: flex;
+    align-items: center;
+    padding: 11px 18px;
+    gap: 7px;
+    background-color: transparent;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 15px;
+    color: red;
+    transition: .3s ease-in-out;
+    border: 2px solid red;
+}
+
+.navbar .user_info .btn_co .deco:hover {
+    background-color: red;
+    color: var(--white-color-1);
+    transition: .3s ease-in-out;
+}
+
+.navbar .user_info .btn_non_co {
+    display: flex;
+    gap: 5px;
+}
+
+.navbar .user_info .btn_non_co a {
     display: flex;
     align-items: center;
     padding: 11px 18px;
@@ -115,26 +129,26 @@ body {
     color: var(--white-color-1);
 }
 
-.navbar .user_info .btn_co a.login {
+.navbar .user_info .btn_non_co a.login {
     color: var(--blue-color-1);
     background-color: none;
     border: 2px solid var(--blue-color-1);
     transition: .3s ease-in-out;
 }
 
-.navbar .user_info .btn_co a.login:hover {
+.navbar .user_info .btn_non_co a.login:hover {
     background-color: var(--blue-color-1);
     color: var(--white-color-1);
     transition: .3s ease-in-out;
 }
 
-.navbar .user_info .btn_co a.register {
+.navbar .user_info .btn_non_co a.register {
     background-color: var(--blue-color-1);
     transition: .3s ease-in-out;
     border: 2px solid var(--blue-color-1);
 }
 
-.navbar .user_info .btn_co a.register:hover {
+.navbar .user_info .btn_non_co a.register:hover {
     background-color: transparent !important;
     color: var(--blue-color-1);
     transition: .3s ease-in-out;

@@ -3,6 +3,11 @@
     ini_set("display_errors", 1);
     include_once('include.php');
 
+    if(isset($_SESSION['utilisateur'])) {
+        header('Location: ' . ROOT_PATH . 'website/pages/');
+        exit();
+    }
+
     $identifiant = '';
     $email = '';
 

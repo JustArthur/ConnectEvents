@@ -43,6 +43,7 @@ body {
 
 /* CARD BLOG */
 .blogs {
+    margin-top: 80px;
     width: 70%;
     padding: 0px 50px;
     height: 100%;
