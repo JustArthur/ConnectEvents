@@ -1,6 +1,6 @@
 <?php
 
-    header('Location: login');
-    exit;
+    header('Location: ' . ROOT_PATH . 'website/pages/');
+    exit();
 
 ?>
