@@ -3,6 +3,6 @@
 
     session_destroy();
     
-    header('Location: ' . ROOT_PATH);
+    header('Location: ' . ROOT_PATH . 'website/pages/');
     exit;
 ?>

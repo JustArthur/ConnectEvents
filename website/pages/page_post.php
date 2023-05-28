@@ -6,7 +6,7 @@
         exit;
     }
 
-    $sql = getPostForBlog($offset, $limit);
+    $sql = getPost($_GET['post_id']);
     $res = $sql->fetch();
 
     $profilePictureBlog = profilPicture($res['profile_photo'], $res['username']);

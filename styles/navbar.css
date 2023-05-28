@@ -98,3 +98,44 @@ body {
     font-size: 15px;
     color: var(--white-color-1);
 }
+
+.navbar .user_info .btn_co {
+    display: flex;
+    gap: 5px;
+}
+
+.navbar .user_info .btn_co a {
+    display: flex;
+    align-items: center;
+    padding: 11px 18px;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--white-color-1);
+}
+
+.navbar .user_info .btn_co a.login {
+    color: var(--blue-color-1);
+    background-color: none;
+    border: 2px solid var(--blue-color-1);
+    transition: .3s ease-in-out;
+}
+
+.navbar .user_info .btn_co a.login:hover {
+    background-color: var(--blue-color-1);
+    color: var(--white-color-1);
+    transition: .3s ease-in-out;
+}
+
+.navbar .user_info .btn_co a.register {
+    background-color: var(--blue-color-1);
+    transition: .3s ease-in-out;
+    border: 2px solid var(--blue-color-1);
+}
+
+.navbar .user_info .btn_co a.register:hover {
+    background-color: transparent !important;
+    color: var(--blue-color-1);
+    transition: .3s ease-in-out;
+}

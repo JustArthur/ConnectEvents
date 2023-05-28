@@ -1,10 +1,5 @@
 <?php
     include_once('../../include.php');
-
-    if(empty($_SESSION['utilisateur'])) {
-        header('Location: ' . ROOT_PATH);
-        exit;
-    }
 ?>
 
 <!DOCTYPE html>

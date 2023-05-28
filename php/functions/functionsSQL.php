@@ -99,6 +99,16 @@
         return $sql;
     }
 
+    function getPost($idpost) {
+        $DBB = new connexionDB();
+        $DB = $DBB->DB();
+
+        $sql = $DB->prepare('SELECT blogposts.post_id, blogposts.title, blogposts.content, blogposts.user_id, blogposts.created_at, users.username, users.profile_photo FROM blogposts INNER JOIN users ON users.user_id = blogposts.user_id WHERE blogposts.post_id = ?');
+        $sql->execute([$idpost]);
+
+        return $sql;
+    }
+
     function getTokenUserByEmail($email) {
         $DBB = new connexionDB();
         $DB = $DBB->DB();
