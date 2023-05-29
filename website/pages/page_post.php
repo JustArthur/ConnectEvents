@@ -6,6 +6,11 @@
         exit;
     }
 
+    if(isset($_SESSION['verif_otp_before_logIn']) && $_SESSION['verif_otp_before_logIn'] == true) {
+        header('Location: ' . ROOT_PATH . 'website/custom_pages/activate_auth');
+        exit();
+    }
+
     $sql = getPost($_GET['post_id']);
     $res = $sql->fetch();
 

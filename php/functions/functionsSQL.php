@@ -19,9 +19,20 @@
             htmlspecialchars(trim($sql['profile_photo'])), //5
             htmlspecialchars(trim($sql['banner_image'])), //6
             htmlspecialchars(trim($sql['created_at'])), //7
-            htmlspecialchars(trim($sql['a2f_activate'])), //8
-            htmlspecialchars(trim($sql['is_verified'])) //9
+            htmlspecialchars(trim($sql['otp_activate'])) //8
         );
+
+        return $sql;
+    }
+
+    function userInformation($email) {
+        $DBB = new connexionDB();
+        $DB = $DBB->DB();
+
+        $email = htmlspecialchars(trim($email));
+
+        $sql = $DB->prepare("SELECT * FROM users WHERE email = ?");
+        $sql->execute([$email]);
 
         return $sql;
     }
@@ -39,7 +50,6 @@
         return $sql;
     }
 
-
     function getUserIdByEmail($email) {
         $DBB = new connexionDB();
         $DB = $DBB->DB();
@@ -48,6 +58,18 @@
 
         $sql = $DB->prepare("SELECT user_id FROM users WHERE email = ?");
         $sql->execute([$email]);
+
+        return $sql;
+    }
+
+    function getUserIdByUsername($username) {
+        $DBB = new connexionDB();
+        $DB = $DBB->DB();
+
+        $username = htmlspecialchars(trim($username));
+
+        $sql = $DB->prepare("SELECT user_id FROM users WHERE username = ?");
+        $sql->execute([$username]);
 
         return $sql;
     }
@@ -134,16 +156,6 @@
         return $sql;
     }
 
-    function is_verified($user_id) {
-        $DBB = new connexionDB();
-        $DB = $DBB->DB();
-
-        $sql = $DB->prepare("UPDATE users SET reset_token = '', is_verified = 1 WHERE user_id = ?;");
-        $sql->execute([$user_id]);
-
-        return $sql;
-    }
-
     function getUserByToken($token) {
         $DBB = new connexionDB();
         $DB = $DBB->DB();
@@ -170,6 +182,56 @@
 
         $sql = $DB->prepare('UPDATE users SET otp_activate = 1 WHERE user_id = ?');
         $sql->execute([$userId]);
+        
+        return $sql;
+    }
+
+    function getOTP($email) {
+        $DBB = new connexionDB();
+        $DB = $DBB->DB();
+
+        $sql = $DB->prepare('SELECT otp_activate FROM users WHERE email = ?');
+        $sql->execute([$email]);
+        
+        return $sql;
+    }
+
+    function changeEmail($email, $userId) {
+        $DBB = new connexionDB();
+        $DB = $DBB->DB();
+
+        $sql = $DB->prepare('UPDATE users SET email = ? WHERE user_id = ?');
+        $sql->execute([$email, $userId]);
+        
+        return $sql;
+    }
+
+    function changeUsername($username, $userId) {
+        $DBB = new connexionDB();
+        $DB = $DBB->DB();
+
+        $sql = $DB->prepare('UPDATE users SET username = ? WHERE user_id = ?');
+        $sql->execute([$username, $userId]);
+        
+        return $sql;
+    }
+
+    function changeNom($nom, $userId) {
+        $DBB = new connexionDB();
+        $DB = $DBB->DB();
+
+        $sql = $DB->prepare('UPDATE users SET last_name = ? WHERE user_id = ?');
+        $sql->execute([$nom, $userId]);
+        
+        return $sql;
+    }
+
+    function changePrenom($prenom, $userId) {
+        $DBB = new connexionDB();
+        $DB = $DBB->DB();
+
+        $sql = $DB->prepare('UPDATE users SET first_name = ? WHERE user_id = ?');
+        $sql->execute([$prenom, $userId]);
         
         return $sql;
     }

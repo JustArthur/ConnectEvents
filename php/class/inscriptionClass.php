@@ -67,13 +67,6 @@
 
                     userLogInSession($email);
 
-                    $subject = 'Activation de votre compte ConnectEvent';
-                    $message = 'Bonjour, Merci de vous être inscrit à ConnectEvents ! Pour confimer votre compte merci de cliquez sur ce lien : ' . ROOT_PATH . '/website/custom_pages/account_activation';
-                    $headers = "Content-Type: text/plain; charset=utf-8\r\n";
-                    $headers .= "From: maxxxozou@gmail.com\r\n";
-
-                    sendMail($email, $subject, $message, $headers);
-
                     header('Location: ' . ROOT_PATH . 'website/pages/');
                     exit();
                 }

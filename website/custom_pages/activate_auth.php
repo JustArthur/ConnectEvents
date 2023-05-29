@@ -6,11 +6,6 @@
         exit();
     }
 
-    if($_SESSION['utilisateur'][8] != 0) {
-        header('Location: ' . ROOT_PATH . 'website/pages/profil');
-        exit();
-    }
-
     $erreur = '';
     $code = random_int(1000, 9999);
 
@@ -24,7 +19,9 @@
                     OTPCodeActivated($_SESSION['utilisateur'][0]);
                     userLogInSession($_SESSION['utilisateur'][4]);
 
-                    header('Location: ' . ROOT_PATH . 'website/pages/profil');
+                    $_SESSION['verif_otp_before_logIn'] = false;
+
+                    header('Location: ' . ROOT_PATH . 'website/pages/');
                     exit();
 
                 } else {
@@ -40,7 +37,7 @@
 
     $_SESSION['otp_code'] = $code;
 
-    $subject = 'Activer l\'authentificateur à deux facteurs';
+    $subject = 'Code d\'authentificateur à deux facteurs';
     $message = 'Bonjour, voici le code à saisir dans le formulaire : ' . $_SESSION['otp_code'];
     $headers = "Content-Type: text/plain; charset=utf-8\r\n";
     $headers .= "From: maxxxozou@gmail.com\r\n";
@@ -60,7 +57,7 @@
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 
-    <title>Activer l'A2F sur mon compte</title>
+    <title>Confirmer l'A2F</title>
 </head>
 <body>
     <?php include_once('../src/navbar.php') ?>
@@ -76,8 +73,8 @@
                 <input type="text" name="ch_4" maxlength="1" disabled />
             </div>
 
-            <input type="submit" id="verif_otp" name="verif_otp" class="submit-input" value="Vérifier le code">
-            <input type="submit" id="re_send_otp" name="re_send_otp" class="submit-input resend" value="Renvoyer un code">
+            <input type="submit" onkeydown="disableEnterKey(event)" id="verif_otp" name="verif_otp" class="submit-input" value="Vérifier le code">
+            <input type="submit" onkeydown="disableEnterKey(event)" id="re_send_otp" name="re_send_otp" class="submit-input resend" value="Renvoyer un code">
         </form>
     </div>
 
