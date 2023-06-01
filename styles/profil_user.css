@@ -87,19 +87,19 @@ body {
     gap: 15px;
 }
 
-.container_profile .user_informations .settings .input-box {
+.input-box {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.container_profile .user_informations .settings .input-box .text-label {
+.input-box .text-label {
     font-weight: 500;
     font-size: 15px;
     line-height: 18px;
 }
 
-.container_profile .user_informations .settings .input-box .input {
+.input-box .input {
     width: 100%;
     height: 55px;
     background: var(--white-color-1);
@@ -111,11 +111,11 @@ body {
     line-height: 18px;
 }
 
-.container_profile .user_informations .settings .input-box .input::placeholder {
+.input-box .input::placeholder {
     color: var(--grey-color);
 }
 
-.container_profile .user_informations .settings .submit-input {
+.submit-input {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -133,26 +133,26 @@ body {
     transition: .3s ease-in-out;
 }
 
-.container_profile .user_informations .settings .submit-input:hover {
+.submit-input:hover {
     background-color: var(--blue-color-1) !important;
     color: var(--white-color-1);
     transition: .3s ease-in-out;
 }
 
-.container_profile .user_informations .settings .submit-input.desactivate {
+.submit-input.desactivate {
     background-color: transparent !important;
     border: 2px solid red;
     color: red;
     transition: .3s ease-in-out;
 }
 
-.container_profile .user_informations .settings .submit-input.desactivate:hover {
+.submit-input.desactivate:hover {
     background-color: red !important;
     color: var(--white-color-1);
     transition: .3s ease-in-out;
 }
 
-.container_profile .user_informations .settings .submit-input.save {
+.submit-input.save {
     background-color: var(--blue-color-1) !important;
     color: var(--white-color-1);
 }
@@ -169,4 +169,33 @@ body {
     border-radius: 15px;
     color: red;
     font-weight: 500;
+}
+
+
+.new_images {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    z-index: 98;
+    background-color: #00000050;
+    display: none;
+}
+
+.new_images form {
+    box-shadow: var(--box-shadow);
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    gap: 20px;
+    width: 500px;
+    background-color: var(--white-color-1);
+    border: 1px solid var(--white-color-2);
+    padding: 30px;
+    border-radius: 15px;
+}
+
+.new_images.active {
+    display: flex;
 }

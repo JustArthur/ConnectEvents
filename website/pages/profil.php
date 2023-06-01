@@ -36,13 +36,13 @@
 
     <title>Profil de <?= $_SESSION['utilisateur'][3] ?></title>
 </head>
-<body>
+<body id="body">
     <?php include_once('../src/navbar.php') ?>
 
     <div class="container_profile">
         <div class="banner_user">
-            <img src="<?= $banner_picture ?>" class="banner">
-            <img src="<?= $profile_picture ?>" class="profil_picture">
+            <img onclick="open_menu()" src="<?= $banner_picture ?>" class="banner">
+            <img onclick="open_menu()" src="<?= $profile_picture ?>" class="profil_picture">
         </div>
 
         <form method="post" class="user_informations">
@@ -108,6 +108,38 @@
         </form>
     </div>
 
+    <div class="new_images" id="image_div">
+        <form method="post" class="box" enctype="multipart/form-data">
+            <h2>Changer les images</h2>
+            <div class="input-box">
+                <label for="avatar" class="text-label">Changer l'avatar</label>
+                <input type="file" name="avatar">
+            </div>
+
+            <div class="input-box">
+                <label for="banner" class="text-label">Changer la bannière</label>
+                <input type="file" name="banner">
+            </div>
+
+            <input type="submit" name="saveImagesChange" value="Sauvegarder les changements" class="submit-input save">
+        </form>
+    </div>
+
     <script src="../javascript/confirmSave.js"></script>
+    <script>
+        function open_menu() {
+            const box = document.getElementById('image_div'),
+                body = document.getElementById('body');
+
+            if (box.classList.contains('active')) {
+                box.classList.remove('active')
+                body.style.overflow = 'scroll';
+
+            } else {
+                box.classList.add('active')
+                body.style.overflow = 'hidden';
+            }
+        }
+    </script>
 </body>
 </html>
