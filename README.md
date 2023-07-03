@@ -29,6 +29,7 @@ iwr -Uri "https://raw.githubusercontent.com/JustArthur/ConnectEvents/main/instal
 
 ## Linux
 (Le test d'installation sur Linux n'a pas encore été essayé, préférer le téléchargement manuel)
+
  ⚠️ Les fichiers seront installés dans le répertoire par défault de LAMP qui est :
     
 ```var/www/html```
