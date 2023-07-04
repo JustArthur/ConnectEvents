@@ -56,7 +56,12 @@ private $name    = 'connectevent';  //nom de la base de donnée
 private $user    = '';              //utilisateur (Permissions requises -> SELECT, INSERT, UPDATE, DELETE)
 private $pass    = '';              //mot de passe de la BDD
 ```
-4. Profiter du site web en local via ce lien <a href="http://127.0.0.1/ConnectEvents">ConnectEvent</a>
+
+4. - Version Apache utilisé : 2.4.54.2
+   - Version PHP utilisé : 8.0.26
+   - Version MySQL utilisé : 8.0.31
+
+5. Profiter du site web en local via ce lien <a href="http://127.0.0.1/ConnectEvents">ConnectEvent</a>
 
 ## Captures d'écran
 <img src="https://github.com/JustArthur/ConnectEvents/blob/main/screenshot/ConnectEvent_1.png?raw=true"/>
