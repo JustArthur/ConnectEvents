@@ -92,27 +92,6 @@
     margin-left: 20px;
 }
 
-.navbar .user_info .btn_co .deco {
-    display: flex;
-    align-items: center;
-    padding: 11px 18px;
-    gap: 7px;
-    background-color: transparent;
-    text-decoration: none;
-    border-radius: 10px;
-    font-weight: 700;
-    font-size: 15px;
-    color: red;
-    transition: .3s ease-in-out;
-    border: 2px solid red;
-}
-
-.navbar .user_info .btn_co .deco:hover {
-    background-color: red;
-    color: var(--white-color-1);
-    transition: .3s ease-in-out;
-}
-
 .navbar .user_info .btn_non_co {
     display: flex;
     gap: 5px;

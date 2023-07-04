@@ -31,44 +31,38 @@
 
 /* BODY */
 body {
-    height: 100vh;
+    height: max-content;
     width: 100%;
     display: flex;
     flex-direction: column;
+    gap: 20px;
     color: var(--blue-color-1);
     user-select: none;
     align-items: center;
 }
 
 
+
 /* CARD BLOG */
 .blogs {
     margin-top: 80px;
-    width: 1500px;
+    width: 100%;
     padding: 0px 50px;
     height: 100%;
     display: flex;
     flex-direction: column;
     gap: 30px;
-    overflow-y: scroll;
 }
 
 .blog {
     width: 100%;
-    padding: 30px 40px;
+    padding: 40px;
     background: var(--bg-color);
     border: 1px solid var(--white-color-2);
-    box-shadow: var(--box-shadow);
-    border-radius: 40px;
+    border-radius: 20px;
     display: flex;
     flex-direction: column;
     gap: 30px;
-    transition: all .5s ease-in-out;
-}
-
-.blog:hover {
-    box-shadow: none;
-    transition: all .2s ease-in-out;
 }
 
 .blog:first-child {
@@ -113,19 +107,13 @@ body {
     line-height: 43px;
     text-decoration: none;
     color: var(--blue-color-1);
-    max-width: 830px;
+    max-width: 100%;
 }
 
 .blog .info-blog .date-blog {
     width: max-content;
     height: max-content;
 }
-
-.blog .info-blog .user-info .informations .titre-blog:hover:not(.no_hover) {
-    text-decoration: underline;
-    color: var(--blue-color-2);
-}
-
 
 .blog .contenu-blog {
     font-weight: 500;
@@ -134,11 +122,103 @@ body {
     user-select: text;
 }
 
-.no_blog {
-    height: 100%;
+
+
+.blogs .section_add_comment {
     width: 100%;
     display: flex;
     flex-direction: column;
+    gap: 15px;
+}
+
+.blogs .section_add_comment .infos {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.blogs .section_add_comment .infos .submit_comment {
+    display: flex;
     align-items: center;
-    justify-content: center;
+    padding: 11px 18px;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--white-color-1);
+    background-color: var(--blue-color-1);
+    transition: .3s ease-in-out;
+    border: 2px solid var(--blue-color-1);
+    cursor: pointer;
+}
+
+.blogs .section_add_comment .infos .submit_comment:hover {
+    background-color: transparent !important;
+    color: var(--blue-color-1);
+    transition: .3s ease-in-out;
+}
+
+.blogs .section_add_comment .input {
+    width: 100%;
+    padding: 20px;
+    height: 150px;
+    background: var(--bg-color);
+    border: 1px solid var(--white-color-2);
+    border-radius: 20px;
+    resize: none;
+}
+
+
+
+
+.comments {
+    width: 100%;
+    height: max-content;
+    padding: 0px 50px 20px 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.comments .comment_list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.comments .comment_list .comment {
+    width: 100%;
+    padding: 40px;
+    background: var(--bg-color);
+    border: 1px solid var(--white-color-2);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.comments .user_info_comment {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.comments .user_info_comment .profil_comment{
+    width: 70px;
+    height: 70px;
+}
+
+.comments .user_info_comment .nomPrenom {
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 18px;
+    color: var(--blue-color-1); 
+}
+
+.comments .comment_list .comment .contenu_comment{
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 18px;
+    user-select: text;
 }

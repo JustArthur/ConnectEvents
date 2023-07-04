@@ -5,6 +5,9 @@
         header('Location: ' . ROOT_PATH . 'website/custom_pages/activate_auth');
         exit();
     }
+
+    $countPost = countPostforError();
+    $countPost = $countPost->fetch();
 ?>
 
 <!DOCTYPE html>
@@ -19,48 +22,55 @@
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 
-    <title>Document</title>
+    <title>Accueil</title>
 </head>
 <body>
     <?php include_once('../src/navbar.php') ?>
 
+    <?php if($countPost['return_count'] != 0) {?>
 
-    <div class="blogs" id="content"></div>
+        <div class="blogs" id="content"></div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        var isLoading = false;
-        var page = 1;
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            var isLoading = false;
+            var page = 1;
 
-        $(document).ready(function() {
-            loadData();
-
-            $('#content').scroll(function() {
-            if ($('#content').scrollTop() >= ($('#content')[0].scrollHeight - $('#content').height())) {
+            $(document).ready(function() {
                 loadData();
-            }
-            });
-        });
 
-        function loadData() {
-            if (isLoading) {
-                return;
-            }
-
-            isLoading = true;
-
-            $.ajax({
-                url: '../../php/functions/getBlogs.php',
-                method: 'POST',
-                dataType: 'html',
-                data: { page: page },
-                success: function(response) {
-                    $('#content').append(response);
-                    page++;
-                    isLoading = false;
+                $('#content').scroll(function() {
+                if ($('#content').scrollTop() >= ($('#content')[0].scrollHeight - $('#content').height())) {
+                    loadData();
                 }
+                });
             });
-        }
-    </script>
+
+            function loadData() {
+                if (isLoading) {
+                    return;
+                }
+
+                isLoading = true;
+
+                $.ajax({
+                    url: '../../php/functions/getBlogs.php',
+                    method: 'POST',
+                    dataType: 'html',
+                    data: { page: page },
+                    success: function(response) {
+                        $('#content').append(response);
+                        page++;
+                        isLoading = false;
+                    }
+                });
+            }
+        </script>
+    <?php } else { ?>
+        <div class="no_blog">
+            <img src="../../public/public_img/error.png">
+            <h3>Aucune publication trouvé</h3>
+        </div>
+    <?php } ?>
 </body>
 </html>

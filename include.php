@@ -7,6 +7,7 @@
     include_once('php/class/connexionClass.php');
     include_once('php/class/addPostClass.php');
     include_once('php/class/saveUserInformation.php');
+    include_once('php/class/addComment.php');
     
     require_once('php/functions/functionsCode.php');
     require_once('php/functions/functionsSQL.php');
@@ -15,6 +16,7 @@
     $_CONNEXION = new Connexion;
     $_ADDPOST = new addPost;
     $_SAVE = new Sauvegarder;
+    $_ADDCOMMENT = new addComment;
 
     if(!empty($_SESSION['utilisateur'])) {
         $profile_picture = profilPicture($_SESSION['utilisateur'][5], $_SESSION['utilisateur'][1]);

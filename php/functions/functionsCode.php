@@ -67,4 +67,33 @@
     function sendMail($to, $subject, $message, $headers) {
         mail($to, $subject, $message, $headers);
     }
+
+    function getDatePost($datePost) {
+        $currentDateTime = new DateTime();
+        $dateTimeToFormat = new DateTime($datePost);
+
+        $formattedDate = $dateTimeToFormat->format('d / m / Y');
+        $diff = $currentDateTime->diff($dateTimeToFormat);
+
+        if($diff->y > 0) {
+            $elapsedTime = $diff->y . ' an(s)';
+
+        } elseif ($diff->m > 0) {
+            $elapsedTime = $diff->m . ' mois';
+
+        } elseif ($diff->d > 0) {
+            $elapsedTime = $diff->d . ' jour(s)';
+
+        } elseif ($diff->h > 0) {
+            $elapsedTime = $diff->h . ' heure(s)';
+
+        } elseif ($diff->i > 0) {
+            $elapsedTime = $diff->i . ' minute(s)';
+
+        } else {
+            $elapsedTime = 'quelques secondes';
+        }
+
+        return [$formattedDate, $elapsedTime];
+    }
 ?>
