@@ -4,22 +4,22 @@
         $DBB = new connexionDB();
         $DB = $DBB->DB();
 
-        $email = htmlspecialchars(trim($email));
+        $email = htmlspecialchars($email, ENT_QUOTES);
 
         $sql = $DB->prepare("SELECT * FROM users WHERE email = ?");
         $sql->execute([$email]);
         $sql = $sql->fetch();
 
         $_SESSION['utilisateur'] = array(
-            htmlspecialchars(trim($sql['user_id'])), //0
-            htmlspecialchars(trim($sql['last_name'])), //1
-            htmlspecialchars(trim($sql['first_name'])), //2
-            htmlspecialchars(trim($sql['username'])), //3
-            htmlspecialchars(trim($sql['email'])), //4
-            htmlspecialchars(trim($sql['profile_photo'])), //5
-            htmlspecialchars(trim($sql['banner_image'])), //6
-            htmlspecialchars(trim($sql['created_at'])), //7
-            htmlspecialchars(trim($sql['otp_activate'])) //8
+            htmlspecialchars($sql['user_id'], ENT_QUOTES), //0
+            htmlspecialchars($sql['last_name'], ENT_QUOTES), //1
+            htmlspecialchars($sql['first_name'], ENT_QUOTES), //2
+            htmlspecialchars($sql['username'], ENT_QUOTES), //3
+            htmlspecialchars($sql['email'], ENT_QUOTES), //4
+            htmlspecialchars($sql['profile_photo'], ENT_QUOTES), //5
+            htmlspecialchars($sql['banner_image'], ENT_QUOTES), //6
+            htmlspecialchars($sql['created_at'], ENT_QUOTES), //7
+            htmlspecialchars($sql['otp_activate'], ENT_QUOTES) //8
         );
 
         return $sql;
@@ -29,7 +29,7 @@
         $DBB = new connexionDB();
         $DB = $DBB->DB();
 
-        $email = htmlspecialchars(trim($email));
+        $email = htmlspecialchars($email, ENT_QUOTES);
 
         $sql = $DB->prepare("SELECT * FROM users WHERE email = ?");
         $sql->execute([$email]);
@@ -41,8 +41,8 @@
         $DBB = new connexionDB();
         $DB = $DBB->DB();
 
-        $username = htmlspecialchars(trim($username));
-        $email = htmlspecialchars(trim($email));
+        $username = htmlspecialchars($username, ENT_QUOTES);
+        $email = htmlspecialchars($email, ENT_QUOTES);
 
         $sql = $DB->prepare("INSERT INTO users (username, email, password, profile_photo, banner_image, reset_token) VALUES(?, ?, ?, ?, ?, ?);");
         $sql->execute([$username, $email, $crypt_password, $avatar, $banner, $token]);
@@ -54,7 +54,7 @@
         $DBB = new connexionDB();
         $DB = $DBB->DB();
 
-        $email = htmlspecialchars(trim($email));
+        $email = htmlspecialchars($email, ENT_QUOTES);
 
         $sql = $DB->prepare("SELECT user_id FROM users WHERE email = ?");
         $sql->execute([$email]);
@@ -66,7 +66,7 @@
         $DBB = new connexionDB();
         $DB = $DBB->DB();
 
-        $username = htmlspecialchars(trim($username));
+        $username = htmlspecialchars($username, ENT_QUOTES);
 
         $sql = $DB->prepare("SELECT user_id FROM users WHERE username = ?");
         $sql->execute([$username]);
@@ -78,7 +78,7 @@
         $DBB = new connexionDB();
         $DB = $DBB->DB();
 
-        $email = htmlspecialchars(trim($email));
+        $email = htmlspecialchars($email, ENT_QUOTES);
 
         $sql = $DB->prepare('SELECT email FROM users WHERE email = ?');
         $sql->execute([$email]);
@@ -91,7 +91,7 @@
         $DBB = new connexionDB();
         $DB = $DBB->DB();
 
-        $email = htmlspecialchars(trim($email));
+        $email = htmlspecialchars($email, ENT_QUOTES);
 
         $sql = $DB->prepare("SELECT password FROM users WHERE email = ?");
         $sql->execute([$email]);
@@ -104,9 +104,9 @@
         $DBB = new connexionDB();
         $DB = $DBB->DB();
 
-        $titre = (String) htmlspecialchars(trim($titre));
-        $contenu = (String) htmlspecialchars(trim($contenu));
-        $userId = (Int) htmlspecialchars(trim($userId));
+        $titre = (String) htmlspecialchars($titre, ENT_QUOTES);
+        $contenu = (String) htmlspecialchars($contenu, ENT_QUOTES);
+        $userId = (Int) htmlspecialchars($userId, ENT_QUOTES);
 
         $sql = $DB->prepare('INSERT INTO blogposts (title, content, user_id) VALUES(?, ?, ?)');
         $sql->execute([$titre, $contenu, $userId]);

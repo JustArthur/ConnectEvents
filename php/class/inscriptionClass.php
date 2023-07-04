@@ -8,10 +8,10 @@
 
         public function inscription_user($identifiant, $email, $password, $conf_password) {
 
-            $username = (String) htmlspecialchars(trim($identifiant));
-            $email = (String) htmlspecialchars(trim($email));
-            $password = (String) htmlspecialchars(trim($password));
-            $conf_password = (String) htmlspecialchars(trim($conf_password));
+            $username = (String) htmlspecialchars($identifiant,ENT_QUOTES);
+            $email = (String) htmlspecialchars($email,ENT_QUOTES);
+            $password = (String) htmlspecialchars($password,ENT_QUOTES);
+            $conf_password = (String) htmlspecialchars($conf_password,ENT_QUOTES);
 
 
             $this->erreur = (String) "";

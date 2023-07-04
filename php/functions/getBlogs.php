@@ -13,10 +13,10 @@
         while ($row = $sql->fetch()) {
             $profilePictureBlog = profilPicture($row['profile_photo'], $row['username']);
 
-            $usernamePost = htmlspecialchars(trim($row['username']));
-            $titlePost = htmlspecialchars(trim($row['title']));
-            $datePost = htmlspecialchars(trim($row['created_at']));
-            $contentPost = htmlspecialchars(trim($row['content']));
+            $usernamePost = htmlspecialchars($row['username'], ENT_QUOTES);
+            $titlePost = htmlspecialchars($row['title'], ENT_QUOTES);
+            $datePost = htmlspecialchars($row['created_at'], ENT_QUOTES);
+            $contentPost = htmlspecialchars($row['content'], ENT_QUOTES);
 
             $currentDateTime = new DateTime();
             $dateTimeToFormat = new DateTime($datePost);

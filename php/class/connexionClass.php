@@ -6,8 +6,8 @@
 
         public function connexion_user($email, $password) {
 
-            $email = (String) htmlspecialchars(trim($email));
-            $password = (String) htmlspecialchars(trim($password));
+            $email = (String) htmlspecialchars($email, ENT_QUOTES);
+            $password = (String) htmlspecialchars($password, ENT_QUOTES);
 
             $this->erreur = (String) "";
             $this->valid = (boolean) true;

@@ -6,13 +6,13 @@
 
         public function sauvegarde_user($username, $email, $nom, $prenom, $last_password, $new_password, $new_conf_password, $last_email, $userId) {
 
-            $username = (String) htmlspecialchars(trim($username));
-            $email = (String) htmlspecialchars(trim($email));
-            $nom = (String) htmlspecialchars(trim($nom));
-            $prenom = (String) htmlspecialchars(trim($prenom));
-            $last_password = (String) htmlspecialchars(trim($last_password));
-            $new_password = (String) htmlspecialchars(trim($new_password));
-            $new_conf_password = (String) htmlspecialchars(trim($new_conf_password));
+            $username = (String) htmlspecialchars($username, ENT_QUOTES);
+            $email = (String) htmlspecialchars($email, ENT_QUOTES);
+            $nom = (String) htmlspecialchars($nom, ENT_QUOTES);
+            $prenom = (String) htmlspecialchars($prenom, ENT_QUOTES);
+            $last_password = (String) htmlspecialchars($last_password, ENT_QUOTES);
+            $new_password = (String) htmlspecialchars($new_password, ENT_QUOTES);
+            $new_conf_password = (String) htmlspecialchars($new_conf_password, ENT_QUOTES);
 
             $this->erreur = (String) "";
             $this->valid = (boolean) true;
