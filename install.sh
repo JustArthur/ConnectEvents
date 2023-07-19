@@ -9,7 +9,8 @@ excludedFiles=(
     "screenshot/"
     "configuration-messagerie.md"
     "DataBase_ConnectEvents.sql"
-    "install.ps1"
+    "install.ps1",
+    "install.sh",
     "LICENSE"
     "README.md"
 )
